@@ -13,6 +13,7 @@ $colorMap: (
 $sizeMap: (
   default : 16px,
   small : 12px,
+  middle : 14px,
 );
 
 @function getSize($key : 'default'){

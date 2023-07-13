@@ -5,11 +5,28 @@
   background-color: s.getColor('backgroundDark');
 }
 
+.ad__header{
+  @extend .section;
+  background-color: white;
+  max-height: s.space(12);
+  height: 100%
+}
+
 .header__content{
   @extend .section__content;
   display: flex;
   padding: s.space(4) 0;
   justify-content: space-between;
+}
+
+.ad__content{
+  @extend .section__content;
+  @extend .header__block;
+  display: flex;
+  padding: s.space(3) 0;
+  justify-content: space-between;
+  font-size: s.getSize('middle');
+  color: s.getColor('fontDark');
 }
 
 .header__block{
@@ -40,8 +57,10 @@
 }
 
 .product__title{
+  display: flex;
   font-size: 56px;
   font-weight: 600;
+  justify-content: center;
 }
 
 .product__description{
@@ -64,8 +83,8 @@
 .product{
   @extend .section;
 
-  padding-top: s.space(20);
-  padding-bottom: s.space(20);
+  padding-top: s.space(12);
+  padding-bottom: s.space(12);
 
   background-repeat: no-repeat;
   background-position: bottom center;
@@ -91,17 +110,18 @@
 
   @media all and (width < s.getScreen('tablet')) {
     background-size: 150%;
-    max-height: 800px;
+    max-height: 500px;
   }
 }
 
 $productImage: (
   'iphone-pro' '/img/iphone-pro.png' black,
   'iphone' '/img/iphone.png' #FAFAFA,
+  'iwatch' '/img/iwatch.png' black,
   'trade-in' '/img/trade_in.png' #FBFBFD,
   'conference' '/img/conference.png' black,  
-  'ipad' '/img/ipad.png' #FBFBFD,
-  'small_business' '/img/small_business.png' #FBFBFD,
+  'ipad' '/img/ipad.png' #FBFBFB,
+  'small_business' '/img/small_business.png' black,
   'gift' '/img/gift.png' #FBFBFD,
   'card' '/img/card.png' #FBFBFD,
 );
@@ -148,5 +168,53 @@ $productImage: (
   
   .product__description{
     font-size: 20px;
+  }
+}
+
+.footer{
+  @extend .section;
+  padding: s.space(10) 0px;
+  background-color: s.getColor('background');
+}
+
+.footer__content{
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: s.space(5);
+  width: calc(100% - 80px);
+}
+
+.footer__column{
+  display: flex;
+  flex-direction: column;
+  gap: s.space(4);  
+}
+
+.column__title{
+  color: s.getColor('fontDark');
+  font-size: s.getSize('small');
+  font-weight: 600;
+}
+
+.column__content{
+  display: flex;
+  flex-direction: column;
+  gap: s.space(3);
+}
+
+.footer__link{
+  @extend .header__link;
+  color: #424245;
+}
+
+@media all and (width < 600px) {
+  .footer__content{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media all and (width < 400px) {
+  .footer__content{
+    grid-template-columns: repeat(2, 1fr);
   }
 }
